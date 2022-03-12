@@ -6,7 +6,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +30,7 @@ public class RemoveCartController extends HttpServlet {
         String url = ERROR;
         try {
             int id = Integer.parseInt(request.getParameter("productID"));
-            HttpSession session = session = request.getSession();
+            HttpSession session = request.getSession();
             if (session != null) {
                 Cart cart = (Cart) session.getAttribute("CART");
                 if (cart != null) {

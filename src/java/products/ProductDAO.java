@@ -188,7 +188,6 @@ public class ProductDAO {
     }
 
     public int getCountProduct(String search) throws SQLException, ClassNotFoundException {
-        List<ProductDTO> list = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
@@ -218,7 +217,6 @@ public class ProductDAO {
     }
 
     public int getCountProductCategory(String search, int categoryID) throws SQLException, ClassNotFoundException {
-        List<ProductDTO> list = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;

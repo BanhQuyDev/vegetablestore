@@ -45,11 +45,9 @@ public class LoginGoogleServlet extends HttpServlet {
                 }
             } else {
                 user = new UserDTO(user.getEmail(), 2);
-                if (user != null) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("LOGIN_USER", user);
-                    url = SUCCESS;
-                }
+                HttpSession session = request.getSession();
+                session.setAttribute("LOGIN_USER", user);
+                url = SUCCESS;
             }
         } catch (Exception e) {
             log("Error at LoginGoogleServlet: " + e.toString());

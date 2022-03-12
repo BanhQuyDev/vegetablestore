@@ -46,7 +46,7 @@ public class VerifyRecaptcha {
 
             return json.getBoolean("success");
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
         return false;
     }

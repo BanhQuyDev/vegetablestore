@@ -270,7 +270,7 @@ public class UserDAO {
         boolean check = false;
         Connection conn = null;
         PreparedStatement ptm = null;
-        ResultSet rs = null;
+        ResultSet rs;
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
@@ -332,7 +332,6 @@ public class UserDAO {
     }
 
     public int getCountUser(String search) throws SQLException, ClassNotFoundException {
-        List<UserDTO> list = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;

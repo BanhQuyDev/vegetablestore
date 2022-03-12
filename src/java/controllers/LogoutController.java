@@ -22,7 +22,6 @@ public class LogoutController extends HttpServlet {
     private static final String ERROR = "shop.jsp";
     private static final int AD = 1;
     private static final String AD_SUCCESS = "HomeController";
-    private static final int US = 2;
     private static final String US_SUCCESS = "HomeController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -32,14 +31,12 @@ public class LogoutController extends HttpServlet {
         try {
             HttpSession session = request.getSession(false);
             UserDTO user = (UserDTO) session.getAttribute("LOGIN_USER");
-            if (session != null) {
-                session.invalidate();
-                int roleID = user.getRoleID();
-                if (AD == roleID) {
-                    url = AD_SUCCESS;
-                } else {
-                    url = US_SUCCESS;
-                }
+            session.invalidate();
+            int roleID = user.getRoleID();
+            if (AD == roleID) {
+                url = AD_SUCCESS;
+            } else {
+                url = US_SUCCESS;
             }
         } catch (Exception e) {
             log("Error at LogoutController:" + e.toString());
