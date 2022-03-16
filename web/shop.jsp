@@ -46,6 +46,13 @@
             List<ProductDTO> listProduct = (List<ProductDTO>) request.getAttribute("LiST_PRODUCT");
             List<CategoryDTO> listCategory = (List<CategoryDTO>) request.getAttribute("LiST_CATEGORY");
         %>
+        <c:if test="${requestScope.CHECKOUT_MESSAGE != null}">
+            <div class="alert alert-success" role="alert">
+                <center>
+                    <strong>Checkout successfully!!!</strong>
+                </center>
+            </div>
+        </c:if>
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -100,7 +107,7 @@
                             <strong>Alert!</strong> ${requestScope.ERROR_SHOPPING_MESSAGE}
                         </center>
                     </div>
-                </c:if>                  
+                </c:if>
                 <div class="row">
                     <%
                         if (listProduct != null) {

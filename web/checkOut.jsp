@@ -52,7 +52,7 @@
             }
             double totalPrice = 0;
             Cart cart = (Cart) session.getAttribute("CART");
-            if(cart == null){
+            if (cart == null) {
                 response.sendRedirect("HomeController");
                 return;
             }
@@ -105,7 +105,7 @@
                                         <input name="address" style="color: black !important;" type="text" class="form-control" placeholder="House number and street name"value="${sessionScope.LOGIN_USER.address}"readonly="">
                                     </c:when>
                                     <c:otherwise>
-                                        <input name="address" style="color: black !important;" type="text" class="form-control" placeholder="House number and street name"value="${sessionScope.LOGIN_USER.address}">
+                                        <input name="address" style="color: black !important;" type="text" class="form-control" placeholder="House number and street name">
                                     </c:otherwise>
                                 </c:choose>
                             </div>
@@ -116,10 +116,10 @@
                                 <label>Birthday</label>
                                 <c:choose>
                                     <c:when test="${sessionScope.LOGIN_USER.birthday != null}">
-                                        <input name="birthday" style="color: black !important;" type="date" class="form-control" placeholder="" value="${sessionScope.LOGIN_USER.birthday}"readonly="">
+                                        <input name="birthday" style="color: black !important;" type="date" class="form-control" placeholder="" value="${sessionScope.LOGIN_USER.birthday}" readonly="">
                                     </c:when>
                                     <c:otherwise>
-                                        <input name="birthday" style="color: black !important;" type="date" class="form-control" placeholder="" value="${sessionScope.LOGIN_USER.birthday}">
+                                        <input name="birthday" style="color: black !important;" type="date" class="form-control" placeholder="">
                                     </c:otherwise>
                                 </c:choose>                               
                             </div>
@@ -133,19 +133,13 @@
                                         <input name="phone" style="color: black !important;" type="text" class="form-control" placeholder="" value="${sessionScope.LOGIN_USER.phone}" readonly="">
                                     </c:when>
                                     <c:otherwise>
-                                        <input name="phone" style="color: black !important;" type="text" class="form-control" placeholder="" value="${sessionScope.LOGIN_USER.phone}">
+                                        <input name="phone" style="color: black !important;" type="text" class="form-control" placeholder="">
                                     </c:otherwise>
                                 </c:choose> 
                             </div>
                         </div>
                     </div>
-                    <%
-                        String message = (String) request.getAttribute("CHECKOUT_MESSAGE");
-                        if (message == null) {
-                            message = "Checkout successfully!!!";
-                        }
-                    %> 
-                    <input onclick="alert('<%=message%>')" class="btn btn-success" type="submit" name="action" value="CheckOut">
+                    <input class="btn btn-success" type="submit" name="action" value="CheckOut">
                 </form><!-- END -->
             </div>
             <div class="col-xl-5">
